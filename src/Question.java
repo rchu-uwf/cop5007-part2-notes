@@ -17,8 +17,8 @@ public class Question {
     }
 
     public boolean answerContainsDigit() {
-        for(int i; i < this.answer.length(); ++i) {
-            if(this.answer.charAt(i) == digit) {
+        for(int i=0; i < this.answer.length(); ++i) {
+            if(Character.isDigit(this.answer.charAt(i)) ) {
                 return true;
             }
         }
