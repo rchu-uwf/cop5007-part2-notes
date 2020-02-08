@@ -76,6 +76,11 @@
     Random access vs linear access.
     UML to code, code to UML.
     JUnit.
+    
+## Links to Java documentation and zybooks
+
+    https://docs.oracle.com/en/java/
+    https://learn.zybooks.com/zybook/UWFCOP5007Spring2020
 
 ## Exceptions
 
