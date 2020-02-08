@@ -67,11 +67,13 @@ public class Main {
         System.out.printf("%+18f\n",pi);
         System.out.printf("+%18f\n",pi);
         System.out.println("Displaying the plus sign - end");
+        System.out.println();
 
     }  //formattedOutput
 
     private static void inputStreams() {
 
+        System.out.println("InputStreams example - begin");
         Scanner myStream = new Scanner("hands-2-feet-3-arms-4-legs-5");
         myStream.useDelimiter("-");
 
@@ -81,23 +83,33 @@ public class Main {
         System.out.println(foo);
         System.out.println(first);
 
+        System.out.println("InputStreams example - end");
+        System.out.println();
     }
 
     private static void outputStreams() {
+        System.out.println("OutputStreams example - begin");
 
         StringWriter chars = new StringWriter();
         PrintWriter outputStream = new PrintWriter(chars);
 
         outputStream.printf("%10s", "Chicago");
         System.out.println(chars.toString());
+
+        System.out.println("OutputStreams example - end");
+        System.out.println();
+
     } //outputStreams
 
     /*
     He describes in lecture that you should never throw an exception out of main().
-        private static void funFile() throws FileNotFoundException {
+        private static void main() throws FileNotFoundException {
 
      */
     private static void funFile() {
+
+        System.out.println("File stream examples - begin");
+
         try {
             FileInputStream inFile = new FileInputStream("input.txt");
             Scanner inStream = new Scanner(inFile);
@@ -114,12 +126,17 @@ public class Main {
             // Need to flush the buffer to disk.
             outFileStream.flush();
             outFile.close();
+            inFile.close();
 
         } catch (FileNotFoundException e) {
             System.out.println(e.getClass() + " " + e.getMessage());
         } catch (IOException e) {
             System.out.println(e.getClass() + " " + e.getMessage());
         }
+
+        System.out.println("Check the output file for the results.");
+        System.out.println("File stream examples - end");
+        System.out.println();
 
     } // funFile
 
