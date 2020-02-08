@@ -5,8 +5,14 @@ public class Main {
 
     public static void main(String[] args) {
         inputStreams();
-        outputSteams();
+        outputStreams();
         funFile();
+        try {
+            demoExceptions();
+        } catch (Exception e) {
+            System.out.println("Caught error in main.");
+        }
+        interfaceExample();
     }
 
     private static void inputStreams() {
@@ -22,14 +28,14 @@ public class Main {
 
     }
 
-    private static void outputSteams() {
+    private static void outputStreams() {
 
         StringWriter chars = new StringWriter();
         PrintWriter outputStream = new PrintWriter(chars);
 
-        outputStream.printf("%10s","Chicago");
+        outputStream.printf("%10s", "Chicago");
         System.out.println(chars.toString());
-    }
+    } //outputStreams
 
     /*
     He describes in lecture that you should never throw an exception out of main().
@@ -46,16 +52,45 @@ public class Main {
             FileOutputStream outFile = new FileOutputStream("output.txt");
             PrintWriter outFileStream = new PrintWriter(outFile);
 
+            outFileStream.println("Write out the first line");
             outFileStream.println(firstLine);
+            outFileStream.println("Write out the second line");
+            outFileStream.println(inStream.nextLine());
+            // Need to flush the buffer to disk.
             outFileStream.flush();
             outFile.close();
 
-        } catch(FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             System.out.println(e.getClass() + " " + e.getMessage());
-        }
-        catch(IOException e) {
+        } catch (IOException e) {
             System.out.println(e.getClass() + " " + e.getMessage());
         }
 
-    } // end funFile
+    } // funFile
+
+    private static void demoExceptions() throws Exception {
+
+        for (int i = 0; i < 5; ++i) {
+            try {
+                System.out.println("This is the beginning of the try section.");
+                if (i < 2) {
+                    throw new Exception("First fail.");
+                }
+                if (i > 2) {
+                    throw new Exception("Second fail.");
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                System.out.println("Catch section.");
+                ;
+            }
+        }  // for loop
+
+    } // demoExceptions
+
+    private static void interfaceExample() {
+        Zipper myZip = new Zipper();
+        myZip.unSnag();
+
+    } // interfaceExample
 }

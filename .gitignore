@@ -1,4 +1,4 @@
-
+out/
 # intellij
 *.iml
 .idea
