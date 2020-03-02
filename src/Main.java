@@ -93,7 +93,8 @@ public class Main {
         StringWriter chars = new StringWriter();
         PrintWriter outputStream = new PrintWriter(chars);
 
-        outputStream.printf("%10s", "Chicago");
+        outputStream.printf("%10s", "Chicago \n");
+        outputStream.printf("%10s", "Tampa \n");
         System.out.println(chars.toString());
 
         System.out.println("OutputStreams example - end");

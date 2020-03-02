@@ -1,4 +1,10 @@
-out/
+
+# eclipse
+.classpath
+.project
+
 # intellij
-*.iml
 .idea
+*iml
+out
+
